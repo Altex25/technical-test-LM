@@ -1,0 +1,7 @@
+<h2 class="title">Product list</h2>
+<div class="product-list">
+  <div *ngFor="let product of products" class="product-card">
+    <h3 class="product-name">{{ product.name }}</h3>
+    <p class="product-price">{{ product.price }} € </p>
+  </div>
+</div>

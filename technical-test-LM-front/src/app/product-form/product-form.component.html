@@ -1,0 +1,18 @@
+<form [formGroup]="form" (submit)="onSubmit()" class="product-form">
+  <div class="form-group">
+    <label for="name">Product Name:</label>
+    <input id="name" formControlName="name" type="text" class="form-control" />
+    <div *ngIf="form?.get('name')?.touched && form?.get('name')?.invalid" class="error-message">
+      <span *ngIf="form?.get('name')?.hasError('required')">Le produit doit avoir un nom.</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="price">Product price:</label>
+    <input id="price" formControlName="price" type="number" class="form-control" />
+    <div *ngIf="form?.get('price')?.touched && form?.get('price')?.invalid" class="error-message">
+      <span *ngIf="form?.get('price')?.hasError('required')">Le produit doit avoir un prix.</span>
+      <span *ngIf="form?.get('price')?.hasError('min')">Le prix doit être supérieur à 0.</span>
+    </div>
+  </div>
+  <button type="submit" class="submit-button">Create product</button>
+</form>
